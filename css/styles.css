@@ -1,0 +1,510 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #f9f9fd;
+}
+
+/* text */
+.text {
+  border: 20px dashed #2196f3;
+  padding: 15px;
+  margin: 20px;
+}
+
+/* box */
+.box {
+  width: 150px;
+  height: 150px;
+
+  border: 5px solid #f44336;
+  padding: 30px;
+  margin: 40px;
+  background-color: #ffeb3b;
+}
+
+/* content box */
+/* Lățimea finală a blocului = 150px + 30px + 30px + 5px + 5px */
+.content-box {
+  width: 150px;
+  height: 150px;
+  border: 5px solid #f44336;
+  padding: 30px;
+  margin: 100px;
+  background-color: #ffeb3b;
+}
+
+/* border box */
+.border-box {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border: 5px solid #f44336;
+  padding: 30px;
+  margin: 100px;
+  background-color: #ffeb3b;
+}
+
+/* proprietatea padding */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #212121;
+}
+
+.padding-text {
+  padding: 20px;
+  background-color: #fff;
+  border: 2px dashed #212121;
+}
+
+/* proprietatea margin */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.post {
+  padding: 20px;
+
+  max-width: 400px;
+  background-color: #fff;
+  border: 2px dashed #2a2a2a;
+}
+
+.post-thumb {
+  margin-bottom: 30px;
+  border: 2px dashed tomato;
+}
+
+.post-heading {
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  border: 2px dashed teal;
+}
+
+.post-text {
+  margin-bottom: 0;
+  margin-top: 0;
+
+  border: 2px dashed blue;
+}
+
+/* margins-collapse */
+.margins-collapse-box {
+  width: 200px;
+  height: 100px;
+}
+
+.margins-collapse-top {
+  margin-bottom: 20px;
+  background-color: teal;
+}
+
+.margins-collapse-bottom {
+  margin-top: 40px;
+  background-color: palevioletred;
+}
+
+/* margins outside */
+.outer-box {
+  width: 200px;
+  height: 200px;
+  background-color: teal;
+}
+
+.inner-box {
+  width: 100px;
+  height: 100px;
+  margin-top: 40px;
+  background-color: palevioletred;
+}
+
+/* border box solid */
+.border-box {
+  width: 100px;
+  height: 100px;
+  border: 5px solid tomato;
+}
+
+/* border individual */
+.individual-border-box {
+  width: 100px;
+  height: 100px;
+
+  /* Setați stilurile bordurii de sus */
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: blue;
+
+  /* Setați stilurile bordurii din dreapta */
+  border-right-width: 5px;
+  border-right-style: dotted;
+  border-right-color: black;
+
+  /* Setați stilurile bordurii de jos */
+  border-bottom-width: 7px;
+  border-bottom-style: dashed;
+  border-bottom-color: palevioletred;
+
+  /* Setați stilurile bordurii din stânga */
+  border-left-width: 9px;
+  border-left-style: dashed;
+  border-left-color: green;
+}
+
+/* round-border-box */
+.round-border-box-1 {
+  width: 140px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #f44336;
+}
+
+.round-border-box-2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+  background-color: #2196f3;
+}
+
+.round-border-box-3 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #4caf50;
+}
+
+/* fixed-width-box */
+.fixed-width-box {
+  width: 240px;
+  height: 80px;
+}
+
+.indigo {
+  background-color: #3f51b5;
+}
+
+.green {
+  background-color: #4caf50;
+}
+
+.amber {
+  background-color: #ffc107;
+}
+
+/* horizontal-margin-box */
+/* exemplu 1 */
+.horizontal {
+  width: 240px;
+  height: 80px;
+}
+
+.margin-right-box {
+  margin-right: auto;
+}
+
+.margin-right-left-box {
+  background-color: tomato;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.margin-center-box {
+  background-color: green;
+  margin: 0 auto;
+}
+
+/* exemplu 2 */
+.parent {
+  background-color: #3f51b5;
+}
+
+.child {
+  max-width: 220px;
+  margin: 0 auto;
+  background-color: #4caf50;
+  text-align: center;
+}
+
+.parent,
+.child {
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* container */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  border: 2px dashed #2a2a2a;
+}
+
+/* page containers */
+page h1,
+page h2,
+page p {
+  margin: 0;
+}
+
+.page-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  outline: 2px dashed #f44336;
+}
+
+.page-header,
+.page-footer,
+.hero,
+.about,
+.features {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page-header {
+  background-color: #e0e0e0;
+}
+
+.hero {
+  background-color: #4caf50;
+}
+
+.about {
+  background-color: #ffc107;
+}
+
+.features {
+  background-color: #2196f3;
+}
+
+.page-footer {
+  background-color: #90a4ae;
+}
+
+/* span */
+.link {
+  background-color: tomato;
+  color: white;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+/* goluri inline */
+card *,
+card *::before,
+card *::after {
+  box-sizing: border-box;
+}
+
+.card {
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f44336;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  max-width: 100%;
+}
+
+.card-image.no-gap {
+  display: block;
+}
+
+.card-heading {
+  margin: 0;
+  padding: 20px;
+  font-weight: 500;
+  background-color: #03a9f4;
+}
+
+.card + .card {
+  margin-top: 20px;
+}
+
+/* caracteristici umpluturi și borduri verticale */
+umplutura *,
+umplutura *::before,
+umplutura *::after {
+  box-sizing: border-box;
+}
+
+.span-text {
+  background-color: tomato;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: 10px solid #2196f3;
+  border-right: 10px solid #2196f3;
+
+  /* Let's give the inline <span> element the top
+      and bottom margins, and borders that don't work.   */
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-top: 10px solid #2196f3;
+  border-bottom: 10px solid #2196f3;
+}
+
+/* inline-block */
+.inline-block-link {
+  display: inline-block;
+  padding: 16px 32px;
+
+  border-radius: 3px;
+  background-color: teal;
+  color: white;
+
+  font-family: sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ascunderea elementelor */
+.pane {
+  display: none;
+  padding: 8px;
+  border: 1px solid blue;
+  border-radius: 3px;
+}
+
+.is-active {
+  display: block;
+}
+
+/* last child */
+.list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.list-item:last-child {
+  margin-bottom: 0;
+  color: red;
+}
+
+/* first child */
+.not-list-item:first-child {
+  margin-bottom: 0;
+  color: yellow;
+}
+
+/* not selector */
+.not-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.not-list-item:not(:last-child) {
+  margin-bottom: 12px;
+  color: yellowgreen;
+}
+
+/* n element */
+.n-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.n-element-list-item:nth-child(5) {
+  background-color: orange;
+}
+
+/* pare-impare */
+.pare-impare-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.pare-impare-element-list-item:nth-child(2n) {
+  background-color: orange;
+}
+
+.pare-impare-element-list-item:nth-child(2n + 1) {
+  background-color: blue;
+}
+
+/* begin-n-element */
+.begin-n-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.begin-n-element-list-item:nth-child(n + 6) {
+  background-color: orange;
+}
+
+/* till n element */
+.till-n-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.till-n-element-list-item:nth-child(-n + 5) {
+  background-color: orange;
+}
+
+/* each n element */
+.each-n-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.each-n-element-list-item:nth-child(3n + 1) {
+  background-color: orange;
+}
+
+/* last-n-element */
+.last-n-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.last-n-element-list-item:nth-last-child(3) {
+  background-color: orange;
+}
+
+/* last-b-element */
+.last-b-element-list-item {
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.last-b-element-list-item:nth-last-child(-n + 3) {
+  background-color: orange;
+}

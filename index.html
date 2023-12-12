@@ -4,6 +4,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Mai întâi normalizarea -->
+    <link rel="stylesheet" <br />
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"/>
+
+    <!-- Cale relativa la fisier stiluri CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Lectia5 CSS</title>
   </head>
@@ -38,29 +44,316 @@
       <!-- Modelul cutiei -->
       <section id="modelul">
         <h2>Modelul cutiei</h2>
+        <p>
+          În modelul cutiei, orice element este un container dreptunghiular,
+          indiferent de modul în care este prezentat vizual pe pagină. Un
+          element are o zonă de conținut și margini opționale, umplutură și o
+          bordură (chenar).
+        </p>
+        <p>
+          top <br />
+          left...right <br />
+          bottom
+        </p>
+        <p>
+          Intre top si bottom si intre left si right, de la exterior spre
+          interior, avem :
+        </p>
+
+        <!-- straturile cutiei -->
+        <ul>
+          <li>
+            <h4>Margin</h4>
+            <b>Marginea (margin)</b> – adaugă o margine înafara elementului, de
+            la marginea exterioară (bordură) la elementele adiacente,
+            separându-le astfel pe pagină. Poate avea valori negative. Fundalul
+            elementului nu se extinde niciodată până la margine.
+          </li>
+          <li>
+            <h4>Border</h4>
+            <b>Bordura (border)</b> – chenarul elementului. În mod implicit,
+            lățimea sa este zero. Dacă nu este specificată nicio culoare a
+            bordurei, aceasta capătă culoarea conținutului principal, cum ar fi
+            textul.
+          </li>
+          <li>
+            <h4>Padding</h4>
+            <b>Umplutura (padding)</b> – distanța dintre conținutul unui element
+            și bordura acestuia. E folosit pentru efecte decorative și nu poate
+            avea valori negative.
+          </li>
+          <li>
+            <h4>Content (cu prorietatile width si height)</h4>
+            <b>Zona de conținut (content)</b> – conținutul unui element, cum ar
+            fi un text, o imagine, un videoclip sau elemente suprapuse. În mod
+            implicit, înălțimea zonei de conținut este determinată de conținut
+            și lățimea este determinată de tipul elementului (bloc sau inline).
+          </li>
+        </ul>
+
+        <!--Exemplu -->
+        <div>
+          <h5>Exemplu</h5>
+          <p class="text">
+            This is the content of an element, such as text, image, video, or
+            nested elements. By default, the height of the content area is
+            determined by the content, and the width is determined by the
+            element type.
+          </p>
+          <!-- html -->
+          <h6>HTML</h6>
+          <p>
+            &lt;p class="text"&gt;This is the content of an element, such as
+            text, image, video, or nested elements. By default, the height of
+            the content area is determined by the content, and the width is
+            determined by the element type.&lt;/p&gt;
+          </p>
+
+          <!-- CSS -->
+          <h6>CSS</h6>
+          <p>
+            body { <br />
+            font-family: sans-serif;<br />
+            } <br />
+            <br />
+            .text { <br />
+            border: 20px dashed #2196F3;<br />
+            padding: 15px;<br />
+            margin: 20px;<br />
+            }
+          </p>
+        </div>
+
+        <p>Interesant...!!!</p>
+        <p>
+          Unele elemente din foaia de stil a browserului dețin umplutură și
+          margine ce au dimensiuni setate în mod implicit. De exemplu, listele,
+          paragrafele, titlurile etc. Acest lucru a fost necesar pentru a ajuta
+          conținutul textual al paginii să arate uniform, fără un stil
+          suplimentar.
+        </p>
+
         <ul>
           <!-- Proprietățile width și height -->
           <li>
             <h3>Proprietățile width și height</h3>
+            <p>
+              Aceste proprietăți vă permit să specificați în mod explicit
+              lățimea și înălțimea totală a unui element sau doar dimensiunea
+              zonei de conținut (content) a acestuia, în funcție de tipul
+              modelului cutiei.
+            </p>
+            <p>Câteva sfaturi pentru utilizarea acestor proprietăți:</p>
+            <ul>
+              <li>
+                Nu setați elementelor o înălțime fixă, ci lăsați-o să fie
+                determinată de conținut. O înălțime codificată într-un mod
+                strict duce la o problemă de depășire a spațiului atunci când
+                există mai mult conținut decât e capabil elementul să cuprindă.
+                <p></p>
+              </li>
+              <li>
+                Majoritatea elementelor primesc doar o lățime. Specificarea
+                simultană a width și height merită doar pentru elementele
+                decorative cu o dimensiune fixă, de exemplu pentru iconițe.
+                <p></p>
+              </li>
+              <li>
+                Lățimea poate fi specificată nu numai în px, em sau rem, ci și
+                în procente. În acest caz, lățimea blocului va fi calculată în
+                procente din lățimea părintelui. Veți afla mai multe despre asta
+                atunci când vom construi grile.
+              </li>
+            </ul>
+            <!--Exemplu -->
+            <div>
+              <h5>Exemplu</h5>
+              <div class="box"></div>
+              <!-- html -->
+              <h6>HTML</h6>
+              <p>&lt;div class="box"&gt;&lt;/div&gt;</p>
+
+              <!-- CSS -->
+              <h6>CSS</h6>
+              <p>
+                .box { <br />
+                width: 150px;<br />
+                height: 150px;<br />
+                <br />
+                border: 5px solid #f44336;<br />
+                padding: 30px;<br />
+                margin: 40px;<br />
+                background-color: #ffeb3b;<br />
+                }
+              </p>
+            </div>
+
+            <p><b>Atentie...!!!</b></p>
+            <p>
+              Lățimea și înălțimea finală a blocului div.box va fi de 220px, nu
+              de 150px, așa cum se specifică în proprietățile width și height.
+              De fapt, există mai multe tipuri de modele de bloc care diferă
+              prin formula de calcul a dimensiunii unui element.
+            </p>
           </li>
 
           <!-- Proprietatea box-sizing -->
           <li>
             <h3>Proprietatea box-sizing</h3>
+            <p>
+              Setează tipul modelului de cutie al elementului – formula pentru
+              calcularea dimensiunilor acestuia.
+            </p>
+            <p>box-sizing: content-box | border-box | inherit</p>
+
             <ul>
+              <li>
+                <ul>
+                  <li>
+                    <b>content-box</b> – proprietățile width și height setează
+                    lățimea și înălțimea zonei de conținut și nu includ
+                    dimensiunile umpluturii (padding), a bordurii (border) și
+                    marginii (margin).
+                  </li>
+                  <li>
+                    <b>border-box</b> – proprietățile width și height setează
+                    dimensiunea finală a elementului și includ valorile
+                    umpluturii (padding) și a bordurii (border), dar nu și a
+                    marginii (margin).
+                  </li>
+                  <li>
+                    <b>inherit</b> – moștenește valoarea modelului cutie al
+                    strămoșului.
+                  </li>
+                </ul>
+              </li>
               <!-- Valoarea content-box -->
               <li>
                 <h4>Valoarea content-box</h4>
+                <p>
+                  Acest tip de model de cutie este utilizat de browsere în mod
+                  implicit. Calcularea dimensiunii finale a unui element este
+                  mai dificilă, deoarece proprietățile width și height nu
+                  setează dimensiunea totală a elementului, ci doar înălțimea și
+                  lățimea zonei sale de conținut (content).
+                </p>
+                <p>
+                  Formulele pentru calcularea lățimii și înălțimii finale a
+                  blocului, atunci când valoarea este content-box.
+                </p>
+
+                <!--Exemplu -->
+                <div>
+                  <h5>Exemplu</h5>
+                  <div class="content-box"></div>
+                  <!-- html -->
+                  <h6>HTML</h6>
+                  <p>&lt;div class="content-box"&gt;&lt;/div&gt;</p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    /* Lățimea finală a blocului = 150px + 30px + 30px + 5px +
+                    5px */ <br />
+                    .content-box { <br />
+                    width: 150px;<br />
+                    height: 150px;<br />
+                    border: 5px solid #f44336;<br />
+                    padding: 30px;<br />
+                    margin: 100px;<br />
+                    background-color: #ffeb3b;<br />
+                    }
+                  </p>
+                </div>
+                <p>
+                  În devTools, în fila Computed, este afișată geometria acestui
+                  element.
+                </p>
+                <p>
+                  Lațimea = width + padding-left + padding-right + border-left +
+                  border-right
+                </p>
+                <p>
+                  Înălțimea = height + padding-top + padding-bottom + border-top
+                  + border-bottom
+                </p>
+                <p>
+                  Asa ne-a rezultat mai sus inaltimea si latimea finala a
+                  blocului div .box de 220 px
+                </p>
               </li>
 
               <!-- Valoarea border-box -->
               <li>
-                <h5>Valoarea border-box</h5>
+                <h4>Valoarea border-box</h4>
+                <p>
+                  În acest model, proprietățile width și height stabilesc
+                  dimensiunile finale ale elementului și nu a zonei de conținut.
+                  Conținutul "se micșorează" automat, astfel încât padding și
+                  border să se potrivească în interiorul containerului.
+                </p>
+                <p>
+                  Formulele pentru calcularea lățimii și înălțimii finale a
+                  cutiei atunci când valoarea este border-box.
+                </p>
+                <p>Lățimea = width</p>
+                <p>Înălțimea = height</p>
+                <p>
+                  Prin setarea proprietății box-sizing: border-box, schimbăm
+                  tipul modelului de cutie al elementului curent.
+                </p>
+
+                <!--Exemplu -->
+                <div>
+                  <h5>Exemplu</h5>
+                  <div class="border-box"></div>
+                  <!-- html -->
+                  <h6>HTML</h6>
+                  <p>&lt;div class="border-box"&gt;&lt;/div&gt;</p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    .border-box { <br />
+                    box-sizing: border-box;<br />
+                    width: 150px;<br />
+                    height: 150px;<br />
+                    border: 5px solid #f44336;<br />
+                    padding: 30px;<br />
+                    margin: 100px;<br />
+                    background-color: #ffeb3b;<br />
+                    }
+                  </p>
+                </div>
+                <p>
+                  În devTools, în fila Computed, este afișată geometria acestui
+                  element.
+                </p>
               </li>
 
               <!--Valoarea globală border-box  -->
               <li>
                 <h4>Valoarea globală border-box</h4>
+                <p>
+                  Modelul standard al cutiei în proiectele moderne este
+                  border-box. Pentru a nu seta proprietatea box-sizing pentru
+                  fiecare element în parte chiar la începutul fișierului de
+                  stil, se folosește următorul cod CSS.
+                </p>
+                <p>
+                  *,<br />
+                  *::before,<br />
+                  *::after {<br />
+                  box-sizing: border-box;<br />
+                  } <br />
+                  <br />
+                  /* Restul codului */
+                </p>
+                <p>
+                  Folosind selectorul universal *, valoarea border-box este
+                  setată pentru toate elementele și pseudo-elementele (mai multe
+                  despre asta mai târziu) din document.
+                </p>
               </li>
             </ul>
           </li>
@@ -68,6 +361,45 @@
           <!-- Normalizarea stilurilor -->
           <li>
             <h3>Normalizarea stilurilor</h3>
+            <p>
+              Ne dorim ca indiferent de browser, elementele HTML să arate la
+              fel. Din păcate, nu este cazul, iar aceleași elemente pot arăta
+              ușor diferit în browsere diferite. Atunci când un browser afișează
+              o pagină web, se aplică mai întâi o foaie de stil implicită (foaia
+              de stil agent de utilizator), iar valorile proprietăților acesteia
+              pot fi diferite de foile de stil ale altor browsere. Acest lucru
+              cauzează diferențe ușoare în aspectul unor elemente.
+            </p>
+            <p>
+              Normalizarea stilului este o încercare de a rezolva această
+              problemă prin includerea unui alt fișier de stil care remediază
+              eventualele discrepanțe între foile de stil ale browserului. Adică
+              este o tehnică de îmbunătățire a compatibilității cross-browser a
+              unei pagini web – aceeași afișare și funcționare a site-ului în
+              browsere diferite.
+            </p>
+            <p>
+              Tot ce trebuie să faceți este să includeți încă un fișier de stil
+              înaintea tuturor stilurilor.
+            </p>
+            <p>
+              &lt;head&gt;<br />
+              &lt;!-- Mai întâi normalizarea --&gt;<br />
+              &lt;link <br />
+              rel="stylesheet" <br />
+              href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+              <br />
+              /&gt;<br />
+              &lt;!-- Apoi stilurile --&gt;<br />
+              &lt;link rel="stylesheet" href="link la foaia de stil" /&gt;<br />
+              &lt;/head&gt;
+            </p>
+            <p><b>Util...!!!</b></p>
+            <p>
+              În normalizarea stilurilor, modern-normalize, valoarea globală
+              border-box este setată în mod implicit, de aceea, nu trebuie
+              neapărat să fie menționată printre stiluri.
+            </p>
           </li>
         </ul>
       </section>
@@ -75,19 +407,318 @@
       <!-- Geometria unui element -->
       <section id="geometria">
         <h2>Geometria unui element</h2>
+        <p>
+          Geometria unui element cuprinde 4 laturi: sus (top), dreapta (right),
+          jos (bottom) și stânga (left). În această ordine, în sensul acelor de
+          ceasornic, începând de sus, sunt setate valorile proprietăților
+          compuse padding, margin și border.
+        </p>
         <ul>
           <!-- Proprietatea padding -->
           <li>
             <h3>Proprietatea padding</h3>
+            <p>PADDING: TOP RIGHT BOTTOM LEFT</p>
+            <p>
+              O proprietate compusă care controlează umplutura dintre conținut
+              și bordură, pentru toate laturile unui element. Rezultatul
+              lucrării depinde de numărul de valori al proprietății.
+            </p>
+            <p>
+              /* Aceleași umpluturi de 20px pentru toate părțile */ <br />
+              padding: 20px;<br />
+              <br />
+              /* Umpluturile de sus și de jos 10px, stânga și dreapta 20px */
+              <br />
+              padding: 10px 20px;<br />
+              <br />
+              /* Umplutura de sus 10px, stânga și dreapta 20px, de jos 5px */
+              <br />
+              padding: 10px 20px 5px;<br />
+              <br />
+              /* Umplutura de sus 10px, dreapta 15px, de jos 20px, stânga 25px
+              */ <br />
+              padding: 10px 15px 20px 25px;
+            </p>
+            <p>
+              De asemenea, există proprietăți pentru setarea separată a
+              umpluturii fiecărei părți.
+            </p>
+            <p>
+              padding-top: 20px;<br />
+              padding-right: 10px;<br />
+              padding-bottom: 15px;<br />
+              padding-left: 30px;
+            </p>
+            <p>
+              Câmpurile (paddings) sunt folosite pentru efecte decorative. De
+              exemplu, pentru a crea un spațiu liber între bordura unui element
+              și conținutul acestuia, ca în exemplul de mai sus. Dacă nu setați
+              umplutura, atunci textul va arăta inestetic față de bordura
+              paragrafului.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4><b>Exemplu :</b></h4>
+              <p class="padding-text">
+                Lorem ipsum dolor sit, amet consectetur elit omnis adipisicing.
+                Omnis voluptatibus sit reprehenderit iure est eveniet saepe
+                fugit debitis laborum odio voluptatem repellat eaque voluptatum
+                quos neque optio, perspiciatis aperiam error odit praesentium
+                consequatur totam maiores. Minus similique molestias, eveniet
+                delectus eaque dignissimos! Id deserunt magni doloremque,
+                corrupti consectetur vero!
+              </p>
+
+              <!-- Html -->
+              <h5>HTML</h5>
+              <p>
+                &lt;p class="padding-text"&gt;Lorem ipsum dolor sit, amet
+                consectetur elit omnis adipisicing. Omnis voluptatibus sit
+                reprehenderit iure est eveniet saepe fugit debitis laborum odio
+                voluptatem repellat eaque voluptatum quos neque optio,
+                perspiciatis aperiam error odit praesentium consequatur totam
+                maiores. Minus similique molestias, eveniet delectus eaque
+                dignissimos! Id deserunt magni doloremque, corrupti consectetur
+                vero!&lt;/p&gt;
+              </p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                *,<br />
+                *::before,<br />
+                *::after { <br />
+                box-sizing: border-box;<br />
+                } <br />
+                <br />
+                body { <br />
+                font-family: sans-serif;<br />
+                line-height: 1.5;<br />
+                color: #212121;<br />
+                } <br />
+                <br />
+                .padding-text { <br />
+                padding: 20px;<br />
+                background-color: #fff;<br />
+                border: 2px dashed #212121;<br />
+                }
+              </p>
+            </div>
+
+            <p><b>Util...!!!</b></p>
+            <p>
+              În exemplul dat, proprietățile bordurii nu sunt specificate în mod
+              explicit, dar sunt încă acolo. În mod implicit, lățimea sa este de
+              0px și participă la construcția geometriei elementului, astfel
+              încât, puteți seta o margine între acesta și un conținut.
+            </p>
           </li>
 
           <!-- Proprietatea margin -->
           <li>
             <h3>Proprietatea margin</h3>
+            <p>
+              O proprietate compusă care controlează marginea externă a bordurii
+              pentru toate laturile unui element. Rezultatul depinde de numărul
+              de valori al proprietății.
+            </p>
+            <p>
+              /* Aceleași margini de 20px pentru toate părțile */ <br />
+              margin: 20px;<br />
+              <br />
+              /* Marginile de sus și de jos 10px, stânga și dreapta 20px */
+              <br />
+              margin: 10px 20px;<br />
+              <br />
+              /* Marginea de sus 10px, stânga și dreapta 20px, de jos 5px */
+              <br />
+              margin: 10px 20px 5px;<br />
+              <br />
+              /* Marginea de sus 10px, dreapta 15px, de jos 20px, stânga 25px */
+              <br />
+              margin: 10px 15px 20px 25px;
+            </p>
+            <p>
+              De asemenea, există proprietăți pentru setarea separată a marginii
+              fiecărei părți.
+            </p>
+            <p>
+              margin-top: 20px;<br />
+              margin-right: 10px;<br />
+              margin-bottom: 15px;<br />
+              margin-left: 30px;
+            </p>
+            <p>
+              Marginea este folosită pentru a crea un spațiu între două elemente
+              adiacente. În exemplul de mai jos, fiecare element al cardului are
+              o bordură colorată, astfel încât se vede că între ele este o
+              margine.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4><b>Exemplu :</b></h4>
+              <article class="post">
+                <div class="post-thumb">
+                  <img
+                    class="post-image"
+                    src="https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg"
+                    alt="Tabby cat in a funny sitting position"
+                  />
+                </div>
+                <h1 class="post-heading">All about cats</h1>
+                <p class="post-text">
+                  Lorem ipsum dolor sit, amet consectetur elit omnis
+                  adipisicing. Omnis voluptatibus sit reprehenderit iure est
+                  eveniet saepe fugit debitis laborum odio voluptatem repellat
+                  eaque voluptatum quos neque optio, perspiciatis aperiam error
+                  odit praesentium consequatur totam maiores. Minus similique
+                  molestias, eveniet delectus eaque dignissimos! Id deserunt
+                  magni doloremque, corrupti consectetur vero veniam!
+                </p>
+              </article>
+
+              <!-- Html -->
+              <h5>HTML</h5>
+              <p>
+                &lt;article class="post"&gt;<br />
+                &lt;div class="post-thumb"&gt;<br />
+                &lt;img class="post-image"
+                src="https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg"
+                alt="Tabby cat in a funny sitting position"&gt;<br />
+                &lt;/div&gt;<br />
+                &lt;h1 class="post-heading"&gt;All about cats&lt;/h1&gt;<br />
+                &lt;p class="post-text"&gt;Lorem ipsum dolor sit, amet
+                consectetur elit omnis adipisicing. Omnis voluptatibus sit
+                reprehenderit iure est eveniet saepe fugit debitis laborum odio
+                voluptatem repellat eaque voluptatum quos neque optio,
+                perspiciatis aperiam error odit praesentium consequatur totam
+                maiores. Minus similique molestias, eveniet delectus eaque
+                dignissimos! Id deserunt magni doloremque, corrupti consectetur
+                vero veniam! <br />
+                &lt;/p&gt;<br />
+                &lt;/article&gt;
+              </p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                *,<br />
+                *::before,<br />
+                *::after { <br />
+                box-sizing: border-box;<br />
+                } <br />
+                <br />
+                body { <br />
+                font-family: sans-serif;<br />
+                line-height: 1.5;<br />
+                color: #212121;<br />
+                } <br />
+                <br />
+                img { <br />
+                display: block;<br />
+                max-width: 100%;<br />
+                height: auto;<br />
+                } <br />
+                <br />
+                .post { <br />
+                padding: 20px;<br />
+                <br />
+                max-width: 400px;<br />
+                background-color: #fff;<br />
+                border: 2px dashed #2a2a2a;<br />
+                } <br />
+                <br />
+                .post-thumb { <br />
+                margin-bottom: 30px;<br />
+                border: 2px dashed tomato;<br />
+                } <br />
+                <br />
+                .post-heading { <br />
+                margin-top: 0;<br />
+                margin-bottom: 20px;<br />
+                <br />
+                border: 2px dashed teal;<br />
+                } <br />
+                <br />
+                .post-text { <br />
+                margin-bottom: 0;<br />
+                margin-top: 0;<br />
+                <br />
+                border: 2px dashed blue;<br />
+                }
+              </p>
+              <p><b>Atentie...!!!</b></p>
+              <p>
+                Când folosiți umplutura pentru a crea goluri, elementele se vor
+                potrivi perfect între ele fără un spațiu. Dacă elementul nu are
+                o culoare de bordură sau de fundal, este imposibil să se
+                determine vizual dacă marginile sunt setate corect, astfel
+                trebuie să deschideți instrumentele de dezvoltare.
+              </p>
+            </div>
+            <p>
+              Proprietatea padding separă conținutul de marginea elementului, în
+              timp ce margin creează goluri între elementele adiacente. În asta
+              constă și diferența.
+            </p>
             <ul>
               <!-- Prăbușirea marginilor verticale -->
               <li>
                 <h4>Prăbușirea marginilor verticale</h4>
+                <p>
+                  Marginile verticale ale elementelor de bloc vecine nu se
+                  combină, ci este aleasă cea mai mare dintre ele. Restrângerea
+                  marginilor are loc doar pentru elementele de bloc în fluxul
+                  normal al documentului.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4><b>Exemplu :</b></h4>
+
+                  <!-- Html -->
+                  <div>
+                    <h5>HTML</h5>
+                    <p>
+                      &lt;div class="margins-collapse-box
+                      margins-collapse-top"&gt;&lt;/div&gt;<br />
+                      &lt;div &lt;div class="margins-collapse-box
+                      margins-collapse-bottom"&gt;&lt;/div&gt;
+                    </p>
+
+                    <!-- CSS -->
+                    <h5>CSS</h5>
+                    <p>
+                      .margins-collapse-box { <br />
+                      width: 200px;<br />
+                      height: 100px;<br />
+                      } <br />
+                      <br />
+                      .margins-collapse-top { <br />
+                      margin-bottom: 20px;<br />
+                      background-color: teal;<br />
+                      } <br />
+                      <br />
+                      .margins-collapse-bottom { <br />
+                      margin-top: 40px;<br />
+                      background-color: palevioletred;<br />
+                      }
+                    </p>
+                  </div>
+
+                  <div class="margins-collapse-box margins-collapse-top"></div>
+                  <div
+                    class="margins-collapse-box margins-collapse-bottom"
+                  ></div>
+                  <p>
+                    Să dăm blocului de sus o margine de jos de 20px și blocului
+                    de jos o margine de sus de 40px. Din cauza prăbușirii,
+                    marginea dintre ele va fi de 40px, deoarece este aleasă cea
+                    mai mare dintre cele două.
+                  </p>
+                </div>
               </li>
 
               <!-- Ieșirea marginilor verticale în afara elementului părinte -->
@@ -95,6 +726,58 @@
                 <h4>
                   Ieșirea marginilor verticale în afara elementului părinte
                 </h4>
+                <p>
+                  Marginea verticală a unei cutii imbricate se încadrează în
+                  afara părintelui și le împinge pe ambele departe de vecin.
+                  Dacă elementul părinte are și o margine superioară, atunci va
+                  fi selectată cea mai mare dintre valori.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <div class="outer-box">
+                    <div class="inner-box"></div>
+                  </div>
+
+                  <!-- Html -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="outer-box"&gt;<br />
+                    &lt;div class="inner-box"&gt;&lt;/div&gt;<br />
+                    &lt;/div&breve;
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    În exemplul de mai sus, am setat marginea de sus la 40px
+                    pentru div.inner-box dar, ca rezultat, nu se va îndepărta de
+                    partea de sus a div.outer-box, ci mai degrabă întreaga div
+                    .outer-box de la marginea ecranului va face acest lucru.
+                  </p>
+                  <p>
+                    .outer-box { <br />
+                    width: 200px;<br />
+                    height: 200px;<br />
+                    background-color: teal;<br />
+                    } <br />
+                    <br />
+                    .inner-box { <br />
+                    width: 100px;<br />
+                    height: 100px;<br />
+                    margin-top: 40px;<br />
+                    background-color: palevioletred;<br />
+                    }
+                  </p>
+                  <p><b>Atentie...!!!</b></p>
+                  <p>
+                    Marginile de sus și de jos de la joncțiunea cu blocul
+                    părinte par să-l străpungă și să cadă, asta fiind una dintre
+                    cele mai frecvente erori de layout. Setați margini numai
+                    între două elemente adiacente.
+                  </p>
+                </div>
               </li>
             </ul>
           </li>
@@ -102,15 +785,164 @@
           <!-- Proprietatea border -->
           <li>
             <h3>Proprietatea border</h3>
+            <p><b>BORDER: SIZE STYLE COLOR</b></p>
+            <p>
+              O proprietate compusă care controlează lățimea, stilul și culoarea
+              bordurii (chenar) elementului.
+            </p>
+            <p>border: lățime stil culoare;</p>
+            <p>
+              De asemenea, există proprietăți pentru setarea separată a acestor
+              valori.
+            </p>
+            <p>
+              border-width: lățimea;<br />
+              border-style: stilul;<br />
+              border-color: culoarea;
+            </p>
+            <p>
+              Există multe stiluri de bordură, cele mai populare valori fiind
+              solid, dashed și dotted.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="border-box"></div>
+
+              <!-- Html -->
+              <h5>HTML</h5>
+              <p>&lt;div class="border-box"&gt;&lt;/div&gt;</p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                .border-box { <br />
+                width: 100px;<br />
+                height: 100px;<br />
+                border: 5px solid tomato;<br />
+                }
+              </p>
+            </div>
+
+            <!-- Tipuri de borduri -->
+            <h4>Tipuri de borduri</h4>
             <ul>
               <!-- Borduri individuale -->
               <li>
                 <h4>Borduri individuale</h4>
+                <p>
+                  Puteți seta stiluri individuale de bordură pentru fiecare
+                  parte a unui element. Formatul numelui proprietății este
+                  simplu – border-side-property: valoare.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu :</h4>
+                  <div class="individual-border-box"></div>
+
+                  <!-- Html -->
+                  <h5>HTML</h5>
+                  <p>&lt;div class="individual-border-box"&gt;&lt;/div&gt;</p>
+
+                  <!-- CSS -->
+                  <h5>CSS</h5>
+                  <p>
+                    .individual-border-box { <br />
+                    width: 100px;<br />
+                    height: 100px;<br />
+                    <br />
+                    /* Setați stilurile bordurii de sus */ <br />
+                    border-top-width: 3px;<br />
+                    border-top-style: solid;<br />
+                    border-top-color: blue;<br />
+                    <br />
+                    /* Setați stilurile bordurii din dreapta */ <br />
+                    border-right-width: 5px;<br />
+                    border-right-style: dotted;<br />
+                    border-right-color: black;<br />
+                    <br />
+                    /* Setați stilurile bordurii de jos */ <br />
+                    border-bottom-width: 7px;<br />
+                    border-bottom-style: dashed;<br />
+                    border-bottom-color: palevioletred;<br />
+                    <br />
+                    /* Setați stilurile bordurii din stânga */ <br />
+                    border-left-width: 9px;<br />
+                    border-left-style: dashed;<br />
+                    border-left-color: green;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Bordura rotunjită -->
               <li>
                 <h4>Bordura rotunjită</h4>
+                <p>
+                  Pentru a rotunji toate colțurile bordurii există următoarea
+                  proprietate compusă border-radius. Valoarea poate fi setată în
+                  unități absolute sau relative.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu :</h4>
+                  <div class="round-border-box-1"></div>
+                  <div class="round-border-box-2"></div>
+                  <div class="round-border-box-3"></div>
+
+                  <!-- Html -->
+                  <h5>HTML</h5>
+                  <p>
+                    &lt;div class="round-border-box-1"&gt;&lt;/&div&gt;<br />
+                    &lt;div class="round-border-box-2"&gt;&lt;/div&gt;<br />
+                    &lt;div class="round-border-box-3"&gt;&lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h5>CSS</h5>
+                  <p>
+                    .round-border-box-1 { <br />
+                    width: 140px;<br />
+                    height: 80px;<br />
+                    border-radius: 10px;<br />
+                    background-color: #f44336;<br />
+                    } <br />
+                    <br />
+                    .round-border-box-2 { <br />
+                    width: 100px;<br />
+                    height: 100px;<br />
+                    border-radius: 20%;<br />
+                    background-color: #2196f3;<br />
+                    } <br />
+                    <br />
+                    .round-border-box-3 { <br />
+                    width: 120px;<br />
+                    height: 120px;<br />
+                    border-radius: 50%;<br />
+                    background-color: #4caf50;<br />
+                    }
+                  </p>
+                </div>
+                <p>
+                  Următoarele proprietăți vă permit să rotunjiți fiecare colț al
+                  bordurii în mod individual.
+                </p>
+                <p>
+                  /* colțul din stânga sus */ <br />
+                  border-top-left-radius: valoare;<br />
+                  <br />
+                  /* colțul din dreapta sus */ <br />
+                  border-top-right-radius: valoare;<br />
+                  <br />
+                  /* colțul din dreapta jos */ <br />
+                  border-bottom-right-radius: valoare;<br />
+                  <br />
+                  /* colțul din dreapta jos */ <br />
+                  border-bottom-left-radius: valoare;
+                </p>
               </li>
             </ul>
           </li>
@@ -120,25 +952,537 @@
       <!-- Tipuri de elemente -->
       <section id="tipuri">
         <h2>Tipuri de elemente</h2>
+        <p>
+          În foaia de stil a browserului, fiecare element are setat tipul său –
+          proprietatea display. Comportamentul unui element este determinat de
+          tipul acestuia. Cele mai comune tipuri sunt elementele de tip bloc și
+          inline. În plus, există o serie de tipuri suplimentare, cum ar fi
+          elementele de tip inline-block.
+        </p>
+        <ul>
+          <li>
+            Elementele de tip inline sunt concepute pentru a evidenția și
+            proiecta conținutul textului. De exemplu, link, buton, imagine etc.
+          </li>
+          <li>
+            Elementele de tip bloc sunt folosite pentru a marca containerele de
+            tip text (titlu, listă, paragraf) și secțiuni semantice mari
+            (secțiune, antet, subsol).
+          </li>
+          <li>
+            Puteți afla tipul oricărui element din
+            <a href="https://htmlreference.io/" target="_blank" rel="noopener"
+              >referință</a
+            >
+            sau
+            <a
+              href="https://html.spec.whatwg.org/multipage/"
+              target="_blank"
+              rel="noopener"
+              >specificație</a
+            >.
+          </li>
+        </ul>
+        <p>
+          Uneori este necesar ca un element de tip inline să se comporte ca un
+          element de tip bloc și invers, astfel încât valoarea proprietății
+          display să fie schimbată în oricare doriți.
+        </p>
         <ul>
           <!-- Elementele de tip bloc (block-level) -->
           <li>
             <h3>Elementele de tip bloc (block-level)</h3>
-
+            <p>
+              Din punct de vedere vizual, sunt zone dreptunghiulare aranjate una
+              după alta, de sus în jos.
+            </p>
+            <ul>
+              <li>Au setată proprietatea display: block.</li>
+              <li>
+                Ocupă toată lățimea disponibilă a rândului (spațiul orizontal)
+                din interiorul părintelui.
+              </li>
+              <li>
+                Înălțimea lor este determinată de conținut, cu excepția cazului
+                în care este setată în mod explicit în proprietatea height.
+              </li>
+              <li>
+                Încep întotdeauna din rând nou, astfel încât mai multe elemente
+                adiacente la nivel de bloc sunt plasate vertical unul sub
+                celălalt.
+              </li>
+              <li>
+                Pot avea orice proprietăți ale geometriei elementului: lățime,
+                înălțime, margini, borduri și umpluturi.
+              </li>
+            </ul>
+            <p><b>Util...!!!</b></p>
+            <p>
+              Marea majoritate a elementelor sunt de tip bloc. De exemplu (h1),
+              (p), (section), (ul), (li), (div), (header) și multe altele.
+            </p>
             <ul>
               <!-- Lățimea fixă -->
               <li>
                 <h4>Lățimea fixă</h4>
+                <p>
+                  Chiar dacă lățimea elementelor de tip bloc este setată în mod
+                  explicit, acestea vor fi totuși plasate vertical unul sub
+                  celălalt. În mod implicit, tot spațiul liber de pe o linie
+                  este ocupat de marginea dreaptă automată a elementului
+                  (margin-right).
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <div class="fixed-width-box indigo"></div>
+                  <div class="fixed-width-box green"></div>
+                  <div class="fixed-width-box amber"></div>
+
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="fixed-width-box indigo"&gt;&lt;/div&gt;<br />
+                    &lt;div class="fixed-width-box green"&gt;&lt;/div&gt;<br />
+                    &lt;div class="fixed-width-box amber"&gt;&lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    .fixed-width-box { <br />
+                    width: 240px;<br />
+                    height: 80px;<br />
+                    } <br />
+                    <br />
+                    .indigo { <br />
+                    background-color: #3f51b5;<br />
+                    } <br />
+                    <br />
+                    .green { <br />
+                    background-color: #4caf50;<br />
+                    } <br />
+                    <br />
+                    .amber { <br />
+                    background-color: #ffc107;<br />
+                    }
+                  </p>
+                  <p><b>Instrumente de dezvoltare</b></p>
+                  <p>
+                    Pentru a vedea marginea unui element, trebuie să utilizați
+                    instrumentele de dezvoltare, deoarece aceasta nu se
+                    evidențiază vizual pe pagină.
+                  </p>
+                </div>
               </li>
 
               <!-- Centrarea orizontală a elementelor de tip bloc -->
               <li>
                 <h4>Centrarea orizontală a elementelor de tip bloc</h4>
+                <p>
+                  Un element de tip bloc poate fi centrat orizontal în
+                  interiorul părintelui său atunci când părintele este mai mare
+                  în lățime decât elementul respectiv. Adică, elementul de tip
+                  bloc are o lățime fixă. Pentru a face acest lucru, se
+                  folosește o caracteristică specifică a marginilor orizontale
+                  automate.
+                </p>
+
+                <!-- Exemplu 1-->
+                <div>
+                  <h5>Exemplu 1 :</h5>
+                  <div class="horizontal margin-right-box indigo"></div>
+                  <div class="horizontal margin-right-left-box green"></div>
+                  <div class="horizontal margin-center-box amber"></div>
+
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="horizontal margin-right-box
+                    indigo"&gt;&lt;/div&gt;<br />
+                    &lt;div class="horizontal margin-right-left-box
+                    green"&gt;&lt;/div&gt;<br />
+                    &lt;div class="horizontal margin-center-box
+                    amber"&gt;&lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <ul>
+                    <li>
+                      <p>
+                        În mod implicit, un element de tip bloc are o margine
+                        automată la dreapta, care ocupă tot spațiul liber de pe
+                        linie.
+                      </p>
+                      <p>
+                        .margin-right-box { <br />
+                        margin-right: auto;<br />
+                        }
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Dacă setați marginea automată la stânga și la dreapta,
+                        spațiul liber este distribuit în mod egal între ele, iar
+                        elementul de tip bloc este centrat.
+                      </p>
+                      <p>
+                        .margin-right-left-box { <br />
+                        background-color: tomato;<br />
+                        margin-right: auto;<br />
+                        margin-left: auto;<br />
+                        }
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Pentru o notare mai concisă, puteți folosi proprietatea
+                        compusă margin, setând marginile verticale la zero și
+                        cele orizontale la auto.
+                      </p>
+                      <p>
+                        .margin-center-box { <br />
+                        background-color: green;<br />
+                        margin: 0 auto;<br />
+                        }
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Exemplu 2-->
+                <div>
+                  <h5>Exemplu 2 :</h5>
+                  <div class="parent">
+                    <p>Parent element</p>
+                    <div class="child">
+                      Fixed width block-level child element
+                    </div>
+                  </div>
+
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="parent"&gt;<br />
+                    &lt;p&gt;Parent element&lt;/p&gt;<br />
+                    &lt;div class="child"&gt;Fixed width block-level child
+                    element&lt;/div&gt;<br />
+                    &lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    .parent { <br />
+                    background-color: #3f51b5;<br />
+                    } <br />
+                    <br />
+                    .child { <br />
+                    max-width: 220px;<br />
+                    margin: 0 auto;<br />
+                    background-color: #4caf50;<br />
+                    text-align: center;<br />
+                    } <br />
+                    <br />
+                    .parent,<br />
+                    .child { <br />
+                    padding: 20px;<br />
+                    border-radius: 4px;<br />
+
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Elementul de tip container -->
               <li>
                 <h4>Elementul de tip container</h4>
+                <p>
+                  <b>Container</b>, <b>wrapper</b> sau <b>centerer</b> – acestea
+                  reprezintă numele date unui element standard de tip container
+                  bloc pentru a limita lățimea și a centra conținutul paginii.
+                </p>
+                <p>
+                  În CSS este creată o clasă container care poate fi atribuită
+                  oricărui element, dar în practică va fi întotdeauna un (div)
+                  non-semantic. Lățimea (fixă sau adaptivă) trebuie setată
+                  pentru container, conform gridului din layout, împreună cu
+                  marginile orizontale automate și o umplutură opțională, tot în
+                  funcție de layout.
+                </p>
+                <p>
+                  .container { width: 480px;<br />
+                  margin: 0 auto;<br />
+                  padding: 0 15px;<br />
+                  }
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <p>
+                    Poate exista un singur container – unul comun care cuprinde
+                    tot conținutul paginii, simultan. Pentru claritate, în
+                    exemplul următor marginile containerului vor fi punctate.
+                  </p>
+                  <div class="container">
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Blanditiis quod quo tenetur quia expedita laboriosam at
+                      doloribus molestiae illum, modi minus qui sunt odio iste
+                      commodi nisi dicta distinctio esse. Quae beatae nam ullam
+                      earum velit illum voluptate nesciunt consectetur! Quam
+                      fuga labore dicta iusto tenetur nesciunt velit iure
+                      soluta!
+                    </p>
+
+                    <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Enim eum quas quia nam fugit quibusdam esse amet et! Nam
+                      et quo nisi commodi dolor, deserunt vero deleniti vel
+                      ducimus praesentium aliquid odio fugit accusantium debitis
+                      facere eos asperiores eaque quas? Rerum deserunt ipsa
+                      veritatis vel totam voluptate repellendus minus sit?
+                    </p>
+
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Ut dicta deserunt hic eos aliquam saepe quo facere,
+                      corporis assumenda, ratione debitis suscipit.
+                    </p>
+                  </div>
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="container"&gt;<br />
+                    &lt;h1&gt;Lorem ipsum dolor sit amet.&lt;/h1&gt;<br />
+                    &lt;p&gt;<br />
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br />
+                    Blanditiis quod quo tenetur quia expedita laboriosam at
+                    <br />
+                    doloribus molestiae illum, modi minus qui sunt odio iste
+                    <br />
+                    commodi nisi dicta distinctio esse. Quae beatae nam ullam
+                    <br />
+                    earum velit illum voluptate nesciunt consectetur! Quam
+                    <br />
+                    fuga labore dicta iusto tenetur nesciunt velit iure soluta!
+                    <br />
+                    &lt;/p&gt;
+                    <br />
+                    &lt;h2&gt;Lorem ipsum dolor sit amet
+                    consectetur.&lt;/h2&gt;<br />
+                    &lt;p&gt;<br />
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    <br />
+                    Enim eum quas quia nam fugit quibusdam esse amet et! Nam
+                    <br />
+                    et quo nisi commodi dolor, deserunt vero deleniti vel <br />
+                    ducimus praesentium aliquid odio fugit accusantium debitis
+                    <br />
+                    facere eos asperiores eaque quas? Rerum deserunt ipsa <br />
+                    veritatis vel totam voluptate repellendus minus sit? <br />
+                    &lt;/p&gt;<br />
+                    <br />
+                    &lt;h3&gt;Lorem ipsum dolor sit amet consectetur
+                    adipisicing.&lt;/h3&gt;<br />
+                    &lt;p&gt;<br />
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <br />
+                    Ut dicta deserunt hic eos aliquam saepe quo facere,<br />
+                    corporis assumenda, ratione debitis suscipit. <br />
+                    &lt;/p&gt;<br />
+                    &lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    .container { <br />
+                    max-width: 480px;<br />
+                    margin: 0 auto;<br />
+                    padding: 0 15px;<br />
+                    <br />
+                    border: 2px dashed #2a2a2a;<br />
+                    }
+                  </p>
+                </div>
+                <p>
+                  În majoritatea cazurilor, există mai multe containere,
+                  deoarece fiecare secțiune a paginii are nevoie de propriul
+                  container. Cu o astfel de abordare, puteți seta convenabil
+                  diferite fundaluri de dimensiune completă și alte stiluri de
+                  design pentru secțiuni individuale ale paginii.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <div class="page">
+                    <div class="page-header">
+                      <div class="page-container">
+                        <p>Page header</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <section class="hero">
+                        <div class="page-container">
+                          <h1>Hero section with CTA button etc.</h1>
+                        </div>
+                      </section>
+
+                      <section class="about">
+                        <div class="page-container">
+                          <h2>Lorem ipsum dolor sit amet.</h2>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Aperiam dignissimos debitis ipsum minus
+                            recusandae saepe voluptatem sunt neque eaque ad,
+                            facilis consequatur porro excepturi, nulla corrupti
+                            consequuntur voluptates? Consectetur expedita eaque
+                            voluptate inventore possimus sit. Nesciunt commodi
+                            ut vitae at similique vero harum amet eos? Sit
+                            adipisci deserunt nam libero?
+                          </p>
+                        </div>
+                      </section>
+
+                      <section class="features">
+                        <div class="page-container">
+                          <h2>Lorem ipsum dolor sit amet.</h2>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Aperiam dignissimos debitis ipsum minus
+                            recusandae saepe voluptatem sunt neque eaque ad,
+                            facilis consequatur porro excepturi, nulla corrupti
+                            consequuntur voluptates? Consectetur expedita eaque
+                            voluptate inventore possimus sit. Nesciunt commodi
+                            ut vitae at similique vero harum amet eos? Sit
+                            adipisci deserunt nam libero?
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="page-footer">
+                      <div class="page-container">
+                        <p>Page footer</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- HTML -->
+                  <h5>HTML</h5>
+                  <p>
+                    &lt;div class="page"&gt; <br />
+                    &lt;div class="page-header"&gt; <br />
+                    &lt;div class="page-container"&gt; <br />
+                    &lt;p&gt;Page header&lt;/p&gt; <br />
+                    &lt;/div&gt; <br />
+                    &lt;/div&gt; <br />
+                    <br />
+                    &lt;div&gt; <br />
+                    &lt;section class="hero"&gt; <br />
+                    &lt;div class="page-container"&gt; <br />
+                    &lt;h1&gt;Hero section with CTA button etc.&lt;/h1&gt;
+                    <br />
+                    &lt;/div&gt; <br />
+                    &lt;/section&gt; <br />
+                    <br />
+                    &lt;section class="about"&gt; <br />
+                    &lt;div class="page-container"&gt; <br />
+                    &lt;h2&gt;Lorem ipsum dolor sit amet.&lt;/h2&gt; <br />
+                    &lt;p&gt; <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing <br />
+                    elit. Aperiam dignissimos debitis ipsum minus <br />
+                    recusandae saepe voluptatem sunt neque eaque ad, <br />
+                    facilis consequatur porro excepturi, nulla corrupti <br />
+                    consequuntur voluptates? Consectetur expedita eaque <br />
+                    voluptate inventore possimus sit. Nesciunt commodi <br />
+                    ut vitae at similique vero harum amet eos? Sit adipisci
+                    deserunt nam libero? <br />
+                    &lt;/p&gt; <br />
+                    &lt;/div&gt; <br />
+                    &lt;/section&gt; <br />
+                    <br />
+                    &lt;section class="features"&gt; <br />
+                    &lt;div class="page-container"&gt; <br />
+                    &lt;h2&gt;Lorem ipsum dolor sit amet.&lt;/h2&gt; <br />
+                    &lt;p&gt; <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing <br />
+                    elit. Aperiam dignissimos debitis ipsum minus <br />
+                    recusandae saepe voluptatem sunt neque eaque ad,<br />
+                    facilis consequatur porro excepturi, nulla corrupti <br />
+                    consequuntur voluptates? Consectetur expedita eaque <br />
+                    voluptate inventore possimus sit. Nesciunt commodi <br />
+                    ut vitae at similique vero harum amet eos? Sit <br />
+                    adipisci deserunt nam libero? <br />
+                    &lt;/p&gt; <br />
+                    &lt;/div&gt; <br />
+                    &lt;/section&gt; <br />
+                    &lt;/div&gt; <br />
+
+                    &lt;div class="page-footer"&gt; <br />
+                    &lt;div class="page-container"&gt; <br />
+                    &lt;p&gt;Page footer&lt;/p&gt; <br />
+                    &lt;/div&gt; <br />
+                    &lt;/div&gt; <br />
+                    &lt;/div&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h5>CSS</h5>
+                  <p>
+                    page h1,<br />
+                    page h2,<br />
+                    page p { <br />
+                    margin: 0;<br />
+                    } <br />
+                    <br />
+                    .page-container { <br />
+                    max-width: 480px;<br />
+                    margin: 0 auto;<br />
+                    padding: 0 15px;<br />
+                    <br />
+                    outline: 2px dashed #f44336;<br />
+                    } <br />
+                    <br />
+                    .page-header,<br />
+                    .page-footer,<br />
+                    .hero,<br />
+                    .about,<br />
+                    .features { <br />
+                    padding-top: 20px;<br />
+                    padding-bottom: 20px;<br />
+                    } <br />
+                    <br />
+                    .page-header { <br />
+                    background-color: #e0e0e0;<br />
+                    } <br />
+                    <br />
+                    .hero { <br />
+                    background-color: #4caf50;<br />
+                    } <br />
+                    <br />
+                    .about { <br />
+                    background-color: #ffc107;<br />
+                    } <br />
+                    <br />
+                    .features { <br />
+                    background-color: #2196f3;<br />
+                    } <br />
+                    <br />
+                    .page-footer { <br />
+                    background-color: #90a4ae;<br />
+                    }
+                  </p>
+                </div>
               </li>
             </ul>
           </li>
@@ -146,15 +1490,299 @@
           <!-- Elementele de tip inline -->
           <li>
             <h3>Elementele de tip inline</h3>
+            <p>
+              Acestea sunt aranjate vizual, pe rând, pe o linie, până când este
+              suficient spațiu pe ea, după care încep să se transfere la
+              următoarea linie și să o umple.
+            </p>
+            <ul>
+              <li>Au setată proprietatea display: inline.</li>
+              <li>
+                Lățimea și înălțimea lor depind doar de conținut, nu le puteți
+                seta în mod explicit. Adică, proprietățile width și height nu au
+                niciun efect.
+              </li>
+              <li>
+                Ele sunt plasate pe linie atâta timp cât există suficient spațiu
+                pe ea, după care cele noi sunt transferate pe linia următoare.
+              </li>
+              <li>
+                Acestea pot fi setate numai cu geometrie orizontală: margini din
+                stânga și dreapta, umplutura și bordura. Adică, se ignoră
+                valorile de sus și de jos ale margin, padding și border.
+              </li>
+            </ul>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <a class="link" href="">Link</a>
+
+              <!-- HTML -->
+              <h5>HTML</h5>
+              <p>&lt;a class="link" href=""&gt;Link&lt;/a&gt;</p>
+
+              <p>
+                Span este un element de tip inline, haideți să-i setăm diverse
+                geometrii și să vedem ce se întâmplă.
+              </p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                .link { <br />
+                background-color: tomato;<br />
+                color: white;<br />
+                <br />
+                /* ✅ Funcționează */ <br />
+                padding-left: 20px;<br />
+                padding-right: 20px;<br />
+                margin-right: 50px;<br />
+                margin-left: 50px;<br />
+                <br />
+                /* ❌ Niciun efect */ <br />
+                width: 1000px;<br />
+                height: 1000px;<br />
+                margin-top: 100px;<br />
+                margin-bottom: 100px;<br />
+                }
+              </p>
+            </div>
+            <p><b>Util...!!!</b></p>
+            <p>
+              Elementele de tip inline pot conține doar text, conținut media și
+              alte elemente de tip inline. Excepție este elementul (a), care
+              conform specificației, poate curpinde paragrafe, liste, tabele,
+              titluri și secțiuni întregi, cu condiția să nu conțină alte
+              elemente interactive precum link-uri și butoane.
+            </p>
             <ul>
               <!-- Goluri pentru elementele de tip inline -->
               <li>
                 <h4>Goluri pentru elementele de tip inline</h4>
+                <p>
+                  Elementele inline și inline-block au un gol în partea dreaptă
+                  sau, în cazul imaginilor, în partea de jos. Aceasta nu este o
+                  margine sau o umplutură, ci un spațiu gol literalmente – o
+                  caracteristică a modului în care browserul prezintă conținutul
+                  de tip inline într-o linie.
+                </p>
+                <p><b>Subscribe Login Share Download</b></p>
+                <p>
+                  Mărimea acestui gol este determinată de dimensiunea textului
+                  celui mai apropiat element strămoș cu o valoare explicită sau,
+                  dacă nu există un astfel de strămoș, este utilizată
+                  dimensiunea implicită a fontului browserului, 16px. Prin
+                  urmare, butoanele, link-urile, span-urile, câmpurile de
+                  introducere și alte elemente de tip inline vor avea implicit
+                  un gol de 4px – 1/4 din dimensiunea fontului strămoșului cel
+                  mai apropiat.
+                </p>
+                <p>
+                  Vom discuta în cadrul următoarei lecții cum anume să depășim
+                  această caracteristică într-un mod modern. Acum să ne gândim
+                  cum să eliminăm din imagine golul de jos.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <div class="card">
+                    <img
+                      class="card-image"
+                      src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=320"
+                      alt="A cat"
+                    />
+                    <h2 class="card-heading">Card title 1</h2>
+                  </div>
+
+                  <div class="card">
+                    <img
+                      class="card-image no-gap"
+                      src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=320"
+                      alt="A cat"
+                    />
+                    <h2 class="card-heading">Card title 2</h2>
+                  </div>
+                  <p>
+                    Elementul div.card are o culoare de fundal roșie. Primul
+                    card afișează între imagine și titlu o dungă de culoarea
+                    fundalului, în timp ce al doilea card nu afișează o astfel
+                    de dungă. În al doilea card, tipul de element al imaginii a
+                    fost modificat în unul de tip bloc, ceea ce a eliminat golul
+                    de jos.
+                  </p>
+
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="card"&gt;<br />
+                    &lt;img <br />
+                    class="card-image" <br />
+                    src="https://images.pexels.com/photos/617278/
+                    <br />pexels-photo-617278.jpeg?auto=compress&
+                    <br />cs=tinysrgb&dpr=2&h=240&w=320" <br />
+                    alt="A cat" <br />
+                    /&gt;<br />
+                    &lt;h2 class="card-heading"&gt;Card title 1&lt;/h2&gt;<br />
+                    &lt;/div&gt;<br />
+                    <br />
+                    &lt;div class="card"&gt;<br />
+                    &lt;img <br />
+                    class="card-image no-gap" <br />
+                    src="https://images.pexels.com/photos/617278/
+                    <br />pexels-photo-617278.jpeg?auto=compress&
+                    <br />cs=tinysrgb&dpr=2&h=240&w=320" <br />
+                    alt="A cat" <br />
+                    /&gt;<br />
+                    &lt;h2 class="card-heading"&gt;Card title 2&lt;/h2&gt;<br />
+                    &lt;/div&gt;<br />
+                  </p>
+
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    card *,<br />
+                    card *::before,<br />
+                    card *::after { <br />
+                    box-sizing: border-box;<br />
+                    } <br />
+                    <br />
+                    .card { <br />
+                    max-width: 320px;<br />
+                    margin: 0 auto;<br />
+                    border-radius: 4px;<br />
+                    overflow: hidden;<br />
+                    background-color: #f44336;<br />
+                    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),<br />
+                    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,
+                    0, 0, 0.12);<br />
+                    } <br />
+                    <br />
+                    .card-image { <br />
+                    max-width: 100%;<br />
+                    } <br />
+                    <br />
+                    .card-image.no-gap { <br />
+                    display: block;<br />
+                    } <br />
+                    <br />
+                    .card-heading { <br />
+                    margin: 0;<br />
+                    padding: 20px;<br />
+                    font-weight: 500;<br />
+                    background-color: #03a9f4;<br />
+                    } <br />
+                    <br />
+                    .card + .card { <br />
+                    margin-top: 20px;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Caracteristicile umpluturii și bordurii verticale -->
               <li>
                 <h4>Caracteristicile umpluturii și bordurii verticale</h4>
+                <p>
+                  Umpluturile de sus și de jos ale unui element de tip inline,
+                  alături de bordurile sale, funcționează într-un mod foarte
+                  ciudat, deoarece sunt afișate fără a mări dimensiunea cutiei.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h5>Exemplu :</h5>
+                  <div class="umplutura">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Officia quaerat eaque id voluptate reiciendis beatae vel
+                      nulla, doloremque dolore eum nobis qui, laudantium
+                      dignissimos saepe. Possimus, nisi itaque? Fugiat facilis
+                      saepe quo et architecto voluptatem blanditiis.
+                    </p>
+
+                    <span class="span-text">Inline element</span>
+                    <span class="span-text">Inline element</span>
+
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Officia quaerat eaque id voluptate reiciendis beatae vel
+                      nulla, doloremque dolore eum nobis qui, laudantium
+                      dignissimos saepe. Possimus, nisi itaque? Fugiat facilis
+                      saepe quo et architecto voluptatem blanditiis.
+                    </p>
+                  </div>
+                  <p>
+                    Vizual, fundalul a completat umpluturile și bordurile
+                    verticale, care "se ridică" pe liniile adiacente ale
+                    paragrafelor și se comportă foarte ciudat. E o
+                    caracteristică specifică de afișare în browser, dar ele nu
+                    afectează nicicum geometria elementelor învecinate și, prin
+                    urmare, nu sunt utilizate.
+                  </p>
+
+                  <!-- HTML -->
+                  <h6>HTML</h6>
+                  <p>
+                    &lt;div class="umplutura"&gt;<br />
+                    &lt;p&gt;<br />
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    <br />
+                    Officia quaerat eaque id voluptate reiciendis beatae vel
+                    <br />
+                    nulla, doloremque dolore eum nobis qui, laudantium <br />
+                    dignissimos saepe. Possimus, nisi itaque? Fugiat
+                    <br />facilis <br />
+                    saepe quo et architecto voluptatem blanditiis. <br />
+                    &lt;/p&gt; &lt;span class="span-text"&gt;Inline
+                    element&lt;/span&gt;<br />
+                    &lt;span class="span-text"&gt;Inline element&lt;/span&gt;<br />
+                    <br />
+                    &lt;p&gt;<br />
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    <br />
+                    Officia quaerat eaque id voluptate reiciendis <br />beatae
+                    vel <br />
+                    nulla, doloremque dolore eum nobis qui, laudantium <br />
+                    dignissimos saepe. Possimus, nisi itaque? Fugiat facilis
+                    <br />
+                    saepe quo et architecto voluptatem blanditiis. <br />
+                    &lt;/p&gt;<br />
+                    &lt;/div&gt;
+                  </p>
+                  <!-- CSS -->
+                  <h6>CSS</h6>
+                  <p>
+                    umplutura *,<br />
+                    umplutura *::before,<br />
+                    umplutura *::after { <br />
+                    box-sizing: border-box;<br />
+                    } <br />
+                    <br />
+                    body { <br />
+                    font-family: sans-serif;<br />
+                    line-height: 1.5;<br />
+                    background-color: #f9f9fd;<br />
+                    } <br />
+                    <br />
+                    .text { <br />
+                    background-color: tomato;<br />
+                    color: white;<br />
+                    padding-left: 10px;<br />
+                    padding-right: 10px;<br />
+                    border-left: 10px solid #2196f3;<br />
+                    border-right: 10px solid #2196f3;<br />
+                    <br />
+                    /* Let's give the inline (span) element the top <br />
+                    and bottom margins, and borders that don't work. */ <br />
+                    padding-top: 100px;<br />
+                    padding-bottom: 100px;<br />
+                    border-top: 10px solid #2196f3;<br />
+                    border-bottom: 10px solid #2196f3;<br />
+                    }
+                  </p>
+                </div>
               </li>
             </ul>
           </li>
@@ -162,11 +1790,153 @@
           <!-- Elementele de tip inline-block -->
           <li>
             <h3>Elementele de tip inline-block</h3>
+            <p>
+              Reprezintă un hibrid între elementele de tip bloc și de tip inline
+              care își atribuie tot ce este mai bun din ambele.
+            </p>
+            <ul>
+              <li>Au setată proprietatea display: inline-block.</li>
+              <li>
+                Lățimea și înălțimea lor depind de conținut, dar puteți seta în
+                mod explicit proprietățile width și height.
+              </li>
+              <li>
+                Ele sunt plasate pe linie atâta timp cât există suficient spațiu
+                pe ea, după care cele noi sunt transferate pe linia următoare.
+              </li>
+              <li>
+                Acestea pot fi setate cu orice proprietăți ale geometriei
+                elementului: lățime, înălțime, umplutură, borduri și margini.
+              </li>
+            </ul>
+            <p>
+              Sunt utilizate atunci când elementele de tip inline trebuie să
+              adauge efecte decorative. De exemplu, pentru a seta unui link
+              umpluturi verticale, margini sau lățime și înălțime, făcându-l
+              vizual sa pară un buton sau pentru a transforma (span) într-o
+              iconiță cu dimensiuni fixe.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <a href="" class="inline-block-link">Află mai multe</a>
+              <a href="" class="inline-block-link">Despre CSS</a>
+
+              <p>
+                Schimbăm tipul elementului folosind proprietatea display. Acum
+                link-ul, inițial un element de tip inline, poate primi umpluturi
+                verticale și alte geometrii.
+              </p>
+
+              <!-- HTML -->
+              <h5>HTML</h5>
+              <p>
+                &lt;a href="" class="inline-block-link"&gt;Află mai
+                multe&lt;/a&gt;
+              </p>
+              <p>
+                &lt;a href="" class="inline-block-link"&gt;Despre CSS&lt;/a&gt;
+              </p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                .inline-block-link { display: inline-block; padding: 16px 32px;
+                border-radius: 3px; background-color: teal; color: white;
+                font-family: sans-serif; font-size: 14px; text-decoration: none;
+                text-transform: uppercase; font-weight: 700; }
+              </p>
+            </div>
           </li>
 
           <!-- Ascunderea elementelor -->
           <li>
             <h3>Ascunderea elementelor</h3>
+            <p>
+              Valoarea display: none vă permite să ascundeți complet elementul,
+              eliberându-i spațiul pentru alții. Un astfel de element este
+              retras din fluxul documentului, este ascuns vizual și nu participă
+              la aspectul paginii.
+            </p>
+            <p><b>Interesant...!!!</b></p>
+            <p>
+              Dezavantajul acestei abordări este faptul că modificarea valorii
+              proprietății display nu poate fi animată, dar există și alte
+              abordări pentru ea, abordări cu care ne vom familiariza mai
+              târziu.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <p>
+                Să introducem un marcaj simplu de panouri (file) comutabile, în
+                care ar trebui să fie afișat doar panoul activ.
+              </p>
+              <div class="tabs">
+                <div class="controls">...</div>
+
+                <div class="pane is-active">
+                  1 - Lorem ipsum dolor sit amet consectetur.
+                </div>
+                <div class="pane">
+                  2 - Lorem ipsum dolor sit amet consectetur.
+                </div>
+                <div class="pane">
+                  3 - Lorem ipsum dolor sit amet consectetur.
+                </div>
+              </div>
+              <p>
+                Inițial, vom ascunde toate panourile prin display: none, acestea
+                vor fi ascunse vizual și își vor elibera locul în fluxul
+                documentului. În continuare, vom adăuga clasa din panoul activ
+                is-active în care vom seta display: block. Panoul cu clasa
+                is-active va fi vizibil, iar restul vor fi ascunse.
+              </p>
+
+              <!-- HTML -->
+              <h5>HTML</h5>
+              <p>
+                &lt;div class="tabs"&gt;<br />
+                &lt;div class="controls"&gt;...&lt;/div&gt;<br />
+                <br />
+                &lt;div class="pane is-active"&gt;<br />
+                1 - Lorem ipsum dolor sit amet consectetur. <br />
+                &lt;/div&gt;<br />
+                &lt;div class="pane"&gt;<br />
+                2 - Lorem ipsum dolor sit amet consectetur. <br />
+                &lt;/div&gt;<br />
+                &lt;div class="pane"&gt;<br />
+                3 - Lorem ipsum dolor sit amet consectetur. <br />
+                &lt;/div&gt;<br />
+                &lt;/div&gt;
+              </p>
+
+              <!-- CSS -->
+              <h5>CSS</h5>
+              <p>
+                .pane { <br />
+                display: none;<br />
+                padding: 8px;<br />
+                border: 1px solid blue;<br />
+                border-radius: 3px;<br />
+                } <br />
+                <br />
+                .is-active { <br />
+                display: block;<br />
+                }
+              </p>
+              <p><b>Interesant...!!!</b></p>
+              <p>
+                Pentru a realiza tot ceea ce am menționat anterior, este nevoie
+                de limbajul de programare JavaScript. Pentru un anumit
+                eveniment, va fi posibil să adăugați și să eliminați în mod
+                dinamic clase din elemente. Mai jos este un exemplu complet
+                funcțional. Accesați link-urile și se va afișa panoul
+                corespunzător.
+              </p>
+            </div>
           </li>
         </ul>
       </section>
@@ -174,45 +1944,568 @@
       <!-- Pseudo-clase structurale -->
       <section id="pseudo">
         <h2>Pseudo-clase structurale</h2>
+        <p>
+          Pseudo-clasele structurale reprezintă o modalitate de a selecta
+          anumite elemente dintr-o colecție de elemente copil (vecini), fără a i
+          se atribui clase suplimentare. Elementele copil (vecini) sunt elemente
+          cu un părinte comun.
+        </p>
+
+        <!-- Exemplu -->
+        <div>
+          <h3>Exemplu :</h3>
+          <ul class="list">
+            <li class="list-item">
+              <a class="list-link">Link 1</a>
+            </li>
+            <li class="list-item">
+              <a class="list-link">Link 2</a>
+            </li>
+            <li class="list-item">
+              <a class="list-link">Link 3</a>
+            </li>
+          </ul>
+
+          <!-- HTML -->
+          <h4>HTML</h4>
+          <p>
+            &lt;ul class="list"&gt;<br />
+            &lt;li class="list-item"&gt;<br />
+            &lt;a class="list-link"&gt;Link 1&lt;/a&gt;<br />
+            &lt;/li&gt;<br />
+            &lt;li class="list-item"&gt;<br />
+            &lt;a class="list-link"&gt;Link 2&lt;/a&gt;<br />
+            &lt;/li&gt;<br />
+            &lt;li class="list-item"&gt;<br />
+            &lt;a class="list-link"&gt;Link 3&lt;/a&gt;<br />
+            &lt;/li&gt;<br />
+            &lt;/ul&gt;<br />
+          </p>
+          <p>
+            În exemplul de mai sus, elementele li.list-item sunt vecine cărora
+            li se pot aplica pseudo-clase structurale. În același timp,
+            link-urile a.list-link nu sunt vecine, nu au un părinte comun, așa
+            că nu va fi posibilă utilizarea pseudo-claselor pentru a selecta un
+            anumit link sau un grup de link-uri.
+          </p>
+          <!-- CSS -->
+          <h4>CSS</h4>
+          <p>
+            # ✅ Va funcționa, .list-item este o colecție de vecini cu un
+            părinte comun .list-item:pseudo-clasa structurală {} <br />
+            # ❌ Nu va funcționa, .list-link nu este o colecție de vecini, nu au
+            un părinte comun .list-link:pseudo-clasa structurală {}
+          </p>
+        </div>
         <ul>
           <!-- Pseudo-clasele :first-child și :last-child -->
           <li>
             <h3>Pseudo-clasele :first-child și :last-child</h3>
+            <p>
+              Acestea vă permit să selectați primul sau ultimul element din
+              colecția de vecini. De exemplu, dacă fiecărui element al listei i
+              se dă o margine de jos, atunci și ultimul o va avea. Toată
+              geometria de la extreme trebuie îndepărtată, deoarece astfel de
+              margini pot cădea în afara părintelui sau îl pot extinde.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu</h4>
+              <ul class="list">
+                <li class="list-item">1</li>
+                <li class="list-item">2</li>
+                <li class="list-item">3</li>
+                <li class="list-item">4</li>
+                <li class="list-item">5</li>
+                <li class="list-item">6</li>
+                <li class="list-item">7</li>
+                <li class="list-item">8</li>
+                <li class="list-item">9</li>
+                <li class="list-item">10</li>
+              </ul>
+              <p>
+                Pseudo-clasa :last-child selectează ultimul element din colecția
+                vecinilor.
+              </p>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                &lt;ul class="list"&gt;<br />
+                &lt;li class="list-item"&gt;1&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;2&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;3&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;4&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;5&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;6&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;7&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;8&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;9&lt;/li&gt;<br />
+                &lt;li class="list-item"&gt;10&lt;/li&gt;<br />
+                &lt;/ul&gt;
+              </p>
+              <!-- CSS -->
+              <h3>CSS</h3>
+
+              <p>
+                .list-item { <br />
+                margin-bottom: 12px;<br />
+                display: inline-block;<br />
+                } <br />
+                <br />
+                .list-item:last-child { <br />
+                margin-bottom: 0;<br />
+                color: red;<br />
+                }
+              </p>
+              <p>
+                În mod similar funcționează și :first-child, aplicând stiluri
+                primului element din colecția vecinilor. De exemplu, când
+                trebuie să setați marginea de sus pentru toate elementele, cu
+                excepția primului.
+              </p>
+              <p>
+                .list-item:first-child { <br />
+                margin-bottom: 0;<br />
+                color: yellow;<br />
+                }
+              </p>
+            </div>
           </li>
 
           <!-- Pseudo-clasa :not(selector) -->
           <li>
             <h3>Pseudo-clasa :not(selector)</h3>
+            <p>
+              Vă permite să selectați toate elementele care nu corespund
+              criteriilor – un simplu selector scris între paranteze. Un
+              selector simplu este un selector universal, de tip, identificator,
+              atribut, clasă sau pseudo-clasă.
+            </p>
+            <p>
+              Regula de aplicare a marginii inferioare tuturor elementelor, cu
+              excepția ultimului, poate fi scrisă astfel.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu</h4>
+              <ul class="not-list">
+                <li class="not-list-item">1</li>
+                <li class="not-list-item">2</li>
+                <li class="not-list-item">3</li>
+                <li class="not-list-item">4</li>
+                <li class="not-list-item">5</li>
+                <li class="not-list-item">6</li>
+                <li class="not-list-item">7</li>
+                <li class="not-list-item">8</li>
+                <li class="not-list-item">9</li>
+                <li class="not-list-item">10</li>
+              </ul>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                &lt;ul class="not-list"&gt;<br />
+                &lt;li class="not-list-item"&gt;1&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;2&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;3&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;4&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;5&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;6&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;7&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;8&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;9&lt;/li&gt;<br />
+                &lt;li class="not-list-item"&gt;10&lt;/li&gt;<br />
+                &lt;/ul&gt;
+              </p>
+
+              <!-- CSS -->
+              <h3>CSS</h3>
+              <p>
+                /* * Se citește astfel: aplicați stiluri tuturor elementelor cu
+                clasa list-item, <br />
+                * care nu reprezintă ultimul element din colecția vecinilor. */
+                <br />
+                .not-list-item:not(:last-child) { <br />
+                margin-bottom: 12px;<br />
+                color: green;<br />
+                }
+              </p>
+            </div>
           </li>
 
           <!-- Pseudo-clasa :nth-child(an+b) -->
           <li>
             <h3>Pseudo-clasa :nth-child(an+b)</h3>
+            <p>
+              Selectează elementele dintr-o colecție a vecinilor, după numărul
+              dat în paranteze, folosind o buclă an+b care vă permite să
+              specificați o regulă pentru succesiunea elementelor.
+            </p>
+            <ul>
+              <li>a – perioada ciclului. Un număr arbitrar.</li>
+              <li>
+                n – contor de cicluri. Începe de la zero și crește cu unu după
+                fiecare iterație.
+              </li>
+              <li>b – offset (deplasare). Un număr arbitrar.</li>
+            </ul>
+            <p>
+              De exemplu, dacă a = 2, iar b = 1, atunci an+b = 2n+1. Această
+              formulă va selecta toate elementele impare.
+            </p>
 
             <ul>
               <!-- Al N-lea element -->
               <li>
                 <h4>Al N-lea element</h4>
+                <p>
+                  În cel mai simplu caz, puteți specifica literalmente numărul
+                  elementului colecției. Adică a = 0, iar valoarea lui b este un
+                  număr arbitrar – numărul elementului colecției. Apoi, pentru
+                  orice n, formula va fi 0 * n + b, sau doar b.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="n-element-list">
+                    <li class="n-element-list-item">1</li>
+                    <li class="n-element-list-item">2</li>
+                    <li class="n-element-list-item">3</li>
+                    <li class="n-element-list-item">4</li>
+                    <li class="n-element-list-item">5</li>
+                    <li class="n-element-list-item">6</li>
+                    <li class="n-element-list-item">7</li>
+                    <li class="n-element-list-item">8</li>
+                    <li class="n-element-list-item">9</li>
+                    <li class="n-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="n-element-list"&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .n-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .n-element-list-item:nth-child(5) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Elementele pare și impare -->
               <li>
                 <h4>Elementele pare și impare</h4>
+                <p>
+                  Pentru a selecta toate elementele pare, puteți folosi formula
+                  2n sau alias-ul acesteia, valoarea even.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="pare-impare-list">
+                    <li class="pare-impare-element-list-item">1</li>
+                    <li class="pare-impare-element-list-item">2</li>
+                    <li class="pare-impare-element-list-item">3</li>
+                    <li class="pare-impare-element-list-item">4</li>
+                    <li class="pare-impare-element-list-item">5</li>
+                    <li class="pare-impare-element-list-item">6</li>
+                    <li class="pare-impare-element-list-item">7</li>
+                    <li class="pare-impare-element-list-item">8</li>
+                    <li class="pare-impare-element-list-item">9</li>
+                    <li class="pare-impare-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="pare-impare-element-list"&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li
+                    class="pare-impare-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <h4>Pare</h4>
+                  <p>
+                    .pare-impare-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .pare-impare-list-item:nth-child(2n) { <br />
+                    background-color: orange;<br />
+                    } <br />
+                    <br />
+                    /* În mod similar, folosind un alias */ <br />
+                    .pare-impare-list-item:nth-child(even) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                  <h4>Impare</h4>
+                  <p>
+                    Pentru a selecta toate elementele impare, puteți folosi
+                    formula 2n + 1 sau alias-ul acesteia – valoarea odd, un
+                    cuvânt rezervat.
+                  </p>
+                  <p>
+                    .pare-impare-element-list-item:nth-child(2n + 1) { <br />
+                    background-color: blue;<br />
+                    } <br />
+                    <br />
+                    /* În mod similar, folosind un alias */ <br />
+                    .pare-impare-element-list-item:nth-child(odd) { <br />
+                    background-color: blue;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Începând cu elementul N -->
               <li>
                 <h4>Începând cu elementul N</h4>
+                <p>
+                  Dacă setați a = 1, atunci, formula rezultată, n + b, vă
+                  permite să selectați toate elementele, începând cu elementul
+                  notat cu b. De exemplu, pentru a selecta toate elementele,
+                  începând cu al șaselea (adică, cu excepția primelor cinci),
+                  folosim formula n + 6.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="begin-n-element-list">
+                    <li class="begin-n-element-list-item">1</li>
+                    <li class="begin-n-element-list-item">2</li>
+                    <li class="begin-n-element-list-item">3</li>
+                    <li class="begin-n-element-list-item">4</li>
+                    <li class="begin-n-element-list-item">5</li>
+                    <li class="begin-n-element-list-item">6</li>
+                    <li class="begin-n-element-list-item">7</li>
+                    <li class="begin-n-element-list-item">8</li>
+                    <li class="begin-n-element-list-item">9</li>
+                    <li class="begin-n-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="begin-n-element-list"&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="begin-n-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .begin-n-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .begin-n-element-list-item:nth-child(n + 6) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Până la al N-lea element -->
               <li>
                 <h4>Până la al N-lea element</h4>
+                <p>
+                  Dacă setați a = -1, atunci formula rezultată -n + b, vă
+                  permite să selectați toate elementele de la primul până la
+                  elementul notat cu b. De exemplu, pentru a selecta primele
+                  cinci elemente, utilizați formula -n + 5.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="till-n-element-list">
+                    <li class="till-n-element-list-item">1</li>
+                    <li class="till-n-element-list-item">2</li>
+                    <li class="till-n-element-list-item">3</li>
+                    <li class="till-n-element-list-item">4</li>
+                    <li class="till-n-element-list-item">5</li>
+                    <li class="till-n-element-list-item">6</li>
+                    <li class="till-n-element-list-item">7</li>
+                    <li class="till-n-element-list-item">8</li>
+                    <li class="till-n-element-list-item">9</li>
+                    <li class="till-n-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="till-n-element-list"&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="till-n-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .till-n-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .till-n-element-list-item:nth-child(-n + 5) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Fiecare element N -->
               <li>
                 <h4>Fiecare element N</h4>
+                <p>
+                  De exemplu, pentru a selecta fiecare al 3-lea element începând
+                  cu primul, folosim bucla an+b, în care a = 3, și offset-ul b =
+                  1. (3n+1), rezulta 1;4;7;10;...
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="each-n-element-list">
+                    <li class="each-n-element-list-item">1</li>
+                    <li class="each-n-element-list-item">2</li>
+                    <li class="each-n-element-list-item">3</li>
+                    <li class="each-n-element-list-item">4</li>
+                    <li class="each-n-element-list-item">5</li>
+                    <li class="each-n-element-list-item">6</li>
+                    <li class="each-n-element-list-item">7</li>
+                    <li class="each-n-element-list-item">8</li>
+
+                    <li class="each-n-element-list-item">9</li>
+                    <li class="each-n-element-list-item">10</li>
+                  </ul>
+                  <p>Câteva exemple de consolidare.</p>
+                  <ul>
+                    <li>
+                      3n + 2 – fiecare al treilea element începând cu al 2-lea,
+                      adică elementele 2, 5, 8 etc.
+                    </li>
+                    <li>
+                      2n + 4 – fiecare al doilea element începând cu al 4-lea,
+                      adică elementele 4, 6, 8 etc.
+                    </li>
+                    <li>
+                      4n + 5 – fiecare al patrulea element începând cu al 5-lea,
+                      adică elementele 5, 9, 13 etc.
+                    </li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="each-n-element-list"&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="each-n-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .each-n-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .each-n-element-list-item:nth-child(3n + 1) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                </div>
               </li>
             </ul>
           </li>
@@ -220,15 +2513,128 @@
           <!-- Pseudo-clasa :nth-last-child(an+b) -->
           <li>
             <h3>Pseudo-clasa :nth-last-child(an+b)</h3>
+            <p>
+              Asemănător cu :nth-child(), cu diferența că se numără de la
+              sfârșitul colecției (al ultimului element).
+            </p>
             <ul>
               <!-- Al N-lea element -->
               <li>
                 <h4>Al N-lea element</h4>
+                pSă selectăm al 3-lea element de la final, adică al 8-lea,
+                pentru că sunt doar 10 elemente. Dacă ar fi 20 de elemente în
+                total, atunci ar fi fost ales al 18-lea și așa mai departe.
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="last-n-element-list">
+                    <li class="last-n-element-list-item">1</li>
+                    <li class="last-n-element-list-item">2</li>
+                    <li class="last-n-element-list-item">3</li>
+                    <li class="last-n-element-list-item">4</li>
+                    <li class="last-n-element-list-item">5</li>
+                    <li class="last-n-element-list-item">6</li>
+                    <li class="last-n-element-list-item">7</li>
+                    <li class="last-n-element-list-item">8</li>
+
+                    <li class="last-n-element-list-item">9</li>
+                    <li class="last-n-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="last-n-element-list"&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="last-n-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .last-n-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .last-n-element-list-item:nth-last-child(3) { <br />
+                    background-color: orange;<br />
+                    }
+                  </p>
+                </div>
               </li>
 
               <!-- Până la al N-lea element -->
               <li>
                 <h4>Până la al N-lea element</h4>
+                <p>
+                  Pentru a selecta ultimele elemente dintr-o colecție, se
+                  folosește formula -n + b, unde b este numărul de elemente de
+                  selectat. De exemplu, cu b = 3, vor fi selectate doar ultimele
+                  trei elemente.
+                </p>
+
+                <!-- Exemplu -->
+                <div>
+                  <h4>Exemplu</h4>
+                  <ul class="last-b-element-list">
+                    <li class="last-b-element-list-item">1</li>
+                    <li class="last-b-element-list-item">2</li>
+                    <li class="last-b-element-list-item">3</li>
+                    <li class="last-b-element-list-item">4</li>
+                    <li class="last-b-element-list-item">5</li>
+                    <li class="last-b-element-list-item">6</li>
+                    <li class="last-b-element-list-item">7</li>
+                    <li class="last-b-element-list-item">8</li>
+                    <li class="last-b-element-list-item">9</li>
+                    <li class="last-b-element-list-item">10</li>
+                  </ul>
+
+                  <!-- HTML -->
+                  <h3>HTML</h3>
+                  <p>
+                    &lt;ul class="last-b-element-list"&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;1&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;2&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;3&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;4&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;5&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;6&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;7&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;8&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;9&lt;/li&gt;<br />
+                    &lt;li class="last-b-element-list-item"&gt;10&lt;/li&gt;<br />
+                    &lt;/ul&gt;
+                  </p>
+
+                  <!-- CSS -->
+                  <h3>CSS</h3>
+                  <p>
+                    .last-b-element-list-item { <br />
+                    margin-bottom: 12px;<br />
+                    display: inline-block;<br />
+                    border-radius: 100%;<br />
+                    border: solid;<br />
+                    border-color: red;<br />
+                    } <br />
+                    <br />
+                    .last-b-element-list-item:nth-last-child(-n + 3) { br
+                    background-color: orange;br }
+                  </p>
+                </div>
               </li>
             </ul>
           </li>
@@ -236,6 +2642,33 @@
           <!-- Pseudo-clase suplimentare -->
           <li>
             <h3>Pseudo-clase suplimentare</h3>
+            <p>
+              Aceste pseudo-clase sunt folosite în cazuri destul de rare sau
+              foarte specifice.
+            </p>
+            <ul>
+              <li>:first-of-type – selectează primul selector de acest tip.</li>
+              <li>:last-of-type – selectează ultimul selector de acest tip.</li>
+              <li>
+                :only-of-type – selectează un element care este singurul copil
+                de acest tip din colecția de vecini.
+              </li>
+              <li>
+                :nth-of-type(an+b) – selectează numărul selectorului dat între
+                paranteze, folosind formula an+b.
+              </li>
+              <li>
+                :nth-last-of-type(an+b) – analogul :nth-of-type() cu diferența
+                că se numără de la sfârșitul colecției (al ultimului element).
+              </li>
+              <li>
+                :only-child – selectează elementul care este singurul copil cu
+                respectivul selector din colecția vecinilor.
+              </li>
+              <li>
+                :empty – selectează elementele goale, adică fără copii și text.
+              </li>
+            </ul>
           </li>
         </ul>
       </section>

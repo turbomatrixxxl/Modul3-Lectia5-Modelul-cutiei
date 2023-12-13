@@ -5,6 +5,12 @@ body {
   background-color: #f9f9fd;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* text */
 .text {
   border: 20px dashed #2196f3;
